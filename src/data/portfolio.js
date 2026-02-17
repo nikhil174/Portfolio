@@ -52,7 +52,7 @@ export const experiences = [
       'Scaled backend services powering goals, leaderboards for 20K+ users',
       'Built monitoring service improving observability, reducing downtime by 30%',
     ],
-    tech: ['Python', 'Java', 'Kafka', 'Redis', 'AWS', 'Kubernetes'],
+    tech: ['Java', 'Node.js', 'Python', 'Spring Boot', 'Kafka', 'Redis', 'Elasticsearch', 'Docker', 'AWS', 'Kubernetes'],
   },
   {
     company: 'Faclon Labs',
@@ -65,7 +65,7 @@ export const experiences = [
       'Created high-performance device dashboard improving efficiency by 20-25%',
       'Led zero-downtime migration of 500K+ device records maintaining 100% data integrity',
     ],
-    tech: ['Node.js', 'MongoDB', 'RabbitMQ', 'OAuth 2.0', 'InfluxDB'],
+    tech: ['Node.js', 'MongoDB', 'RabbitMQ', 'Java', 'Spring Boot', 'OAuth 2.0', 'InfluxDB', 'Grafana', 'Docker', 'AWS'],
   },
 ];
 
@@ -129,7 +129,7 @@ export const achievements = [
     desc: 'Owning and shipping billing and reporting systems',
   },
   {
-    award: 'DSA Mastery',
+    award: 'DSA',
     org: 'GeeksForGeeks & Crio.do',
     year: '2024',
     desc: '650+ Data Structures & Algorithms problems solved',

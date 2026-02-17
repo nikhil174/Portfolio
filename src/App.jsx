@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
-import { Menu, X, Github, Linkedin, Code2, ExternalLink } from 'lucide-react';
+import { Menu, X, ExternalLink } from 'lucide-react';
 import { motion, AnimatePresence, MotionConfig, useScroll, useMotionValueEvent } from 'framer-motion';
+import { socialLinks, navItems, sectionIds, heroOrbs, coreStrengths, techStack, experiences, projects, skillGroups, achievements, EMAIL_URL } from './data/portfolio';
 
 const bgClass = 'bg-slate-950 text-slate-50';
 const cardClass = 'bg-slate-900 border-slate-800 hover:border-blue-500/30';
@@ -227,26 +228,6 @@ function CursorSparkle() {
     </>
   );
 }
-
-const socialLinks = [
-  {
-    name: 'GitHub',
-    url: 'https://github.com/nikhil174',
-    icon: Github,
-  },
-  {
-    name: 'LinkedIn',
-    url: 'https://www.linkedin.com/in/nikhilsrivastava174',
-    icon: Linkedin,
-  },
-  {
-    name: 'LeetCode',
-    url: 'https://leetcode.com/u/nikhil174/',
-    icon: Code2,
-  },
-];
-
-const navItems = ['About', 'Experience', 'Projects', 'Skills', 'Contact'];
 
 // ─── Navigation ────────────────────────────────────────────
 function Navigation({ activeSection, scrollToSection, hideNav }) {
@@ -575,22 +556,16 @@ function AboutSection() {
             </p>
             <div className="space-y-3">
               <h3 className="text-lg font-semibold text-blue-400">Core Strengths</h3>
-              {[
-                'Distributed Systems & Microservices',
-                'Event-Driven Architecture',
-                'System Design & Scalability',
-                'High-Performance APIs',
-                'Infrastructure & DevOps',
-              ].map((strength) => (
+              {coreStrengths.map((strength) => (
                 <div key={strength} className="flex items-center gap-3">
                   <div className="w-2 h-2 rounded-full bg-blue-500" />
                   <span className="text-slate-300">{strength}</span>
                 </div>
               ))}
             </div>
-            <p className="text-sm mt-8 text-slate-400">
+            {/* <p className="text-sm mt-8 text-slate-400">
               Currently pursuing MCA at IIIT Ranchi | BCA from Prof. Rajendra Singh University
-            </p>
+            </p> */}
           </motion.div>
 
           {/* Right Column - Tech Stack */}
@@ -602,12 +577,7 @@ function AboutSection() {
           >
             <h3 className="text-lg font-semibold mb-6 text-blue-400">Tech Stack</h3>
             <div className="grid grid-cols-2 gap-4">
-              {[
-                { category: 'Languages', items: ['Java', 'Node.js', 'Python', 'JavaScript'] },
-                { category: 'Backend', items: ['Spring Boot', 'Microservices', 'Kafka', 'REST APIs'] },
-                { category: 'Databases', items: ['PostgreSQL', 'MongoDB', 'Redis', 'Elasticsearch'] },
-                { category: 'DevOps', items: ['AWS', 'Docker', 'Kubernetes', 'Jenkins'] },
-              ].map((group) => (
+              {techStack.map((group) => (
                 <div key={group.category} className={`p-4 rounded-lg border transition-colors duration-300 ${cardClass}`}>
                   <h4 className="font-semibold text-blue-400 mb-3 text-sm">{group.category}</h4>
                   <div className="space-y-2">
@@ -629,34 +599,6 @@ function AboutSection() {
 
 // ─── Experience Section ────────────────────────────────────
 function ExperienceSection() {
-  const experiences = [
-    {
-      company: 'Vymo Technologies',
-      role: 'Solutions Engineer (Backend)',
-      duration: 'May 2024 – Present',
-      location: 'Bengaluru, India',
-      highlights: [
-        'Built AI calling system processing 50K+ daily interactions, reducing manual effort by 75%',
-        'Designed event-driven workflow system handling 40-50K events daily with 99% reliability',
-        'Scaled backend services powering goals, leaderboards for 20K+ users',
-        'Built monitoring service improving observability, reducing downtime by 30%',
-      ],
-      tech: ['Python', 'Java', 'Kafka', 'Redis', 'AWS', 'Kubernetes'],
-    },
-    {
-      company: 'Faclon Labs',
-      role: 'Software Backend Developer',
-      duration: 'July 2022 – December 2023',
-      location: 'Mumbai, India (Remote)',
-      highlights: [
-        'Designed Meter Offset system with automated calculations and secure RBAC/OAuth',
-        'Built scalable AMR billing platform handling high-volume IoT consumption tracking',
-        'Created high-performance device dashboard improving efficiency by 20-25%',
-        'Led zero-downtime migration of 500K+ device records maintaining 100% data integrity',
-      ],
-      tech: ['Node.js', 'MongoDB', 'RabbitMQ', 'OAuth 2.0', 'InfluxDB'],
-    },
-  ];
 
   return (
     <section id="experience" className={`min-h-screen ${bgClass} px-6 py-20`}>
@@ -716,37 +658,6 @@ function ExperienceSection() {
 
 // ─── Projects Section ──────────────────────────────────────
 function ProjectsSection() {
-  const projects = [
-    {
-      title: 'AI Calling System',
-      description:
-        'Event-driven agentic architecture processing 50K+ daily interactions with lead qualification, meeting scheduling, and CRM integration.',
-      metric: '50K+ Daily Interactions',
-      tech: ['Python', 'Java', 'Event-Driven', 'MCP'],
-    },
-    {
-      title: 'Showman Platform',
-      description:
-        'High-throughput data platform serving internal teams, processing 10K+ records daily with near-perfect uptime.',
-      metric: '99%+ Uptime',
-      tech: ['Java', 'Microservices', 'Kafka', 'MySQL'],
-    },
-    {
-      title: 'Meter Offset System',
-      description:
-        'Automated offset calculations with secure RBAC/OAuth flows, audit logs, and full traceability across operations.',
-      metric: '100% Data Integrity',
-      tech: ['Node.js', 'OAuth 2.0', 'Design Patterns'],
-    },
-    {
-      title: 'AMR Billing Platform',
-      description:
-        'Scalable billing system for IoT water consumption tracking with JWT authentication, invoicing, and real-time analytics.',
-      metric: 'High-Volume Processing',
-      tech: ['Node.js', 'MongoDB', 'IoT', 'Real-time Analytics'],
-    },
-  ];
-
   return (
     <section id="projects" className="min-h-screen bg-slate-900 px-6 py-20">
       <div className="max-w-4xl mx-auto">
@@ -819,21 +730,7 @@ function SkillsSection() {
           >
             <h3 className="text-2xl font-bold mb-8">Technical Expertise</h3>
             <div className="space-y-6">
-              {[
-                { category: 'Languages', skills: ['Java', 'Node.js', 'JavaScript', 'Python'] },
-                {
-                  category: 'Frontend',
-                  skills: ['React', 'TypeScript', 'Framer Motion', 'Tailwind CSS'],
-                },
-                {
-                  category: 'Backend & Architecture',
-                  skills: ['Spring Boot', 'Design Patterns', 'Microservices', 'REST APIs', 'Kafka', 'Event-driven Architecture'],
-                },
-                {
-                  category: 'Databases & Infrastructure',
-                  skills: ['PostgreSQL/MySQL', 'MongoDB', 'Redis', 'Elasticsearch', 'AWS', 'Docker', 'Jenkins', 'Kubernetes'],
-                },
-              ].map((skillGroup) => (
+              {skillGroups.map((skillGroup) => (
                 <div key={skillGroup.category}>
                   <h4 className="text-blue-400 font-semibold mb-3">{skillGroup.category}</h4>
                   <div className="flex flex-wrap gap-2">
@@ -860,26 +757,7 @@ function SkillsSection() {
           >
             <h3 className="text-2xl font-bold mb-8">Achievements</h3>
             <div className="space-y-4">
-              {[
-                {
-                  award: 'Lightning Bolt Team Award',
-                  org: 'Vymo Technologies',
-                  year: '2024',
-                  desc: 'High-impact backend and automation platforms',
-                },
-                {
-                  award: 'Employee Excellence Award',
-                  org: 'Faclon Labs',
-                  year: '2023',
-                  desc: 'Owning and shipping billing and reporting systems',
-                },
-                {
-                  award: 'DSA Mastery',
-                  org: 'GeeksForGeeks & Crio.do',
-                  year: '2024',
-                  desc: '650+ Data Structures & Algorithms problems solved',
-                },
-              ].map((achievement, idx) => (
+              {achievements.map((achievement, idx) => (
                 <motion.div
                   key={idx}
                   initial={{ opacity: 0, x: -16 }}
@@ -1257,7 +1135,6 @@ export default function Portfolio() {
 
   // Track active section via IntersectionObserver
   useEffect(() => {
-    const sectionIds = ['home', 'about', 'experience', 'projects', 'skills', 'contact'];
     const observers = [];
 
     sectionIds.forEach((id) => {
