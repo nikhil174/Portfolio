@@ -259,12 +259,12 @@ function Navigation({ activeSection, scrollToSection, hideNav }) {
       transition={{ duration: 0.4, ease: smoothEase }}
     >
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-        {/* Logo / Name */}
+        {/* Logo */}
         <button
           onClick={() => handleNav('home')}
-          className="text-lg font-bold tracking-tight bg-gradient-to-r from-blue-400 to-teal-300 bg-clip-text text-transparent"
+          className="text-2xl font-light tracking-tight bg-gradient-to-r from-blue-400 to-teal-300 bg-clip-text text-transparent hover:from-blue-300 hover:to-teal-200 transition-all duration-300"
         >
-          NS
+          {'{ }'}
         </button>
 
         {/* Desktop Menu */}
